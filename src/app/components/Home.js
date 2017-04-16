@@ -2,17 +2,32 @@ import React from "react";
 
 export class Home extends React.Component {
     render() {
-        let content = "";
-        if (this) {
-            content = <p>Hello !</p>;
-        }
+        var text = "Something";
+
         return (
             <div>
-            <p> In a new component.</p>
+                <p> In a new component.</p>
+                <p>  {text}</p>
 
-                {content}
-                { 5 ==2 ? "Yes" : "No"}
+                <p> Your name {this.props.name}, your age is {this.props.age}</p>
+                <p> User Object: Name => {this.props.user.name} </p>
+                <div>
+                    <h4> Hobbies</h4>
+                    <ul>
+                            {this.props.user.hobbies.map((hobby, i) => <li key={i}>{hobby}</li>)}
+                    </ul>
+
+                </div>
+                <hr />
+                {this.props.children}
         </div>
         );
     }
 }
+
+Home.propTypes = {
+    name: React.PropTypes.string,
+    age: React.PropTypes.number,
+    user: React.PropTypes.object,
+    children: React.PropTypes.element.isRequired
+};
