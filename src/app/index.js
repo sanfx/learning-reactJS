@@ -44,6 +44,7 @@ class App extends React.Component {
                             name={"Max"}
                             initialAge={27}
                             greet={this.onGreet}
+                            initialLinkName={this.state.homeLink}
 
                         />
                     </div>
