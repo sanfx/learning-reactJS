@@ -17,6 +17,38 @@ export class Home extends React.Component {
                     status : 1
                 });
         }, 3000);
+        console.log("constructor");
+    }
+
+    componentWillMount() {
+        console.log("Component will mount.");
+    }
+
+    componentDidMount(){
+        console.log("Component did mount!");
+    }
+
+    componentWillReceiveProps(nextProps){
+        console.log("Component will recieve props", nextProps);
+    }
+
+    shouldComponentUpdate(nextProp, nextState){
+        console.log("Should Component Update ?", nextProp, nextState);
+        // if (nextState.status === 1){
+        //     return false;
+        // }
+        return true;
+    }
+
+    componentWillUpdate(nextProp, nextState){
+        console.log("Component will update !", nextProp, nextState);
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        console.log("Component did update", prevProps, prevState);
+    }
+    componentWillUnmount(){
+        console.log("Component will unmount!");
     }
 
     onMakeOlder() {
